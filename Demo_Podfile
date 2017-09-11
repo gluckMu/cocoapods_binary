@@ -1,0 +1,14 @@
+$LOAD_PATH << '.'
+require 'PodStatic'
+
+platform:ios, '8.0'
+target 'Test' do
+
+	pod 'SDWebImage', '~> 4.1.0'
+    pod 'WeixinSDK', '~> 1.4.3'
+
+end
+
+post_install do |installer|
+	PodStatic.run(installer, ['SDWebImage'])
+end
