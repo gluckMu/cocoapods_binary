@@ -64,7 +64,7 @@ module PodStatic
 	def PodStatic.libsNeedBuild(installer, libs)
 		changedLibs = libs
 		if !ENV['FORCE_BUILD']
-			unchangedLibs = installer.analysis_result.podfile_state.unchanged
+			unchangedLibs = installer.analysis_result.sandbox_state.unchanged
 			if unchangedLibs.size > 0
 				changedLibs = libs.select { |lib| 
 					!unchangedLibs.include?(lib) || !File.exist?(PODS_ROOT_DIR + File::SEPARATOR + STATIC_LIBRARY_DIR + File::SEPARATOR + lib + File::SEPARATOR + 'lib' + lib + '.a')
